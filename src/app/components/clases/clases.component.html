@@ -1,0 +1,37 @@
+<div [ngClass]="alerta" class="alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+</div>
+
+
+
+
+<button type="button" class="btn btn-info" (click)="alerta = 'alert-info'">info</button>
+
+<button type="button" class="btn btn-success" (click)="alerta = 'alert-succes'">succes</button>
+<button type="button" class="btn btn-secondary" (click)="alerta = 'alert-secondary'">secondary</button>
+<button type="button" class="btn btn-danger" (click)="alerta = 'alert-danger'">danger</button>
+<button type="button" class="btn btn-warning" (click)="alerta = 'alert-warning'">warning</button>
+<button type="button" class="btn btn-dark" (click)="alerta = 'alert-dark'">dark</button>
+
+
+<hr>
+
+<h3 [ngClass]="{ 'text-danger': propiedades.danger, 'text-info': !propiedades.danger}">
+    Estoy programando
+
+</h3>
+
+<button type="button" class="btn btn-info" (click)="propiedades.danger = !propiedades.danger" [ngClass]="{'btn-info': propiedades.danger, 'btn-danger': !propiedades.danger}">Cambiar color</button>
+
+<hr>
+
+<h3>Proceso asincrono</h3>
+
+<button type="button" class="btn btn-dark" (click)="ejecutar()" [disabled]="loading">
+    <i [ngClass]="{'fa-save':!loading, 'fa-refresh fa-spin': loading}" class ="fa">
+    </i>
+
+    <span *ngIf="!loading">    Guardar cambios</span>
+<span *ngIf="loading">Espere...</span>
+
+</button>
